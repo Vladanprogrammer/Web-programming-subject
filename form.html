@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Запропонувати місто — Мої 3 найкращі міста світу</title>
+</head>
+<body>
+  <header>
+    <h1>Мої 3 найкращі міста світу</h1>
+    <nav>
+      <a href="index.html">Головна</a> |
+      <a href="city-paris.html">Париж</a> |
+      <a href="city-tokyo.html">Токіо</a> |
+      <a href="city-prague.html">Прага</a> |
+      <a href="form.html">Запропонувати місто</a>
+    </nav>
+  </header>
+  <hr>
+  <main>
+    <h2>Запропонувати місто для наступного рейтингу</h2>
+    <p>Заповніть форму, і я розгляну ваше місто для наступного випуску блогу. Поля, позначені *, є обов'язковими.</p>
+    <form action="form.html" method="get">
+      <fieldset>
+        <legend>Про вас</legend>
+        <p>
+          <label for="name">Ваше ім'я: *</label><br>
+          <input type="text" id="name" name="name" placeholder="Наприклад, Олена" required>
+        </p>
+        <p>
+          <label for="email">Email: *</label><br>
+          <input type="email" id="email" name="email" placeholder="name@example.com" required>
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>Про місто</legend>
+        <p>
+          <label for="city">Назва міста: *</label><br>
+          <input type="text" id="city" name="city" required>
+        </p>
+        <p>
+          <label for="country">Країна: *</label><br>
+          <select id="country" name="country" required>
+            <option value="">— оберіть країну —</option>
+            <option value="ua">Україна</option>
+            <option value="it">Італія</option>
+            <option value="es">Іспанія</option>
+            <option value="pt">Португалія</option>
+            <option value="de">Німеччина</option>
+            <option value="other">Інша</option>
+          </select>
+        </p>
+        <p>Тип пропозиції: *</p>
+        <p>
+          <input type="radio" id="type-visited" name="type" value="visited" required>
+          <label for="type-visited">Я там був(-ла)</label><br>
+          <input type="radio" id="type-wish" name="type" value="wish">
+          <label for="type-wish">Хочу відвідати</label><br>
+          <input type="radio" id="type-heard" name="type" value="heard">
+          <label for="type-heard">Чув(-ла) від інших</label>
+        </p>
+        <p>Що вас приваблює в місті:</p>
+        <p>
+          <input type="checkbox" id="int-history" name="interest" value="history">
+          <label for="int-history">Історія та архітектура</label><br>
+          <input type="checkbox" id="int-food" name="interest" value="food">
+          <label for="int-food">Кухня</label><br>
+          <input type="checkbox" id="int-nature" name="interest" value="nature">
+          <label for="int-nature">Природа</label>
+        </p>
+        <p>
+          <label for="rating">Ваша оцінка міста (1–10):</label><br>
+          <input type="number" id="rating" name="rating" min="1" max="10" value="8">
+        </p>
+        <p>
+          <label for="reason">Чому варто відвідати це місто? *</label><br>
+          <textarea id="reason" name="reason" rows="5" cols="50" required></textarea>
+        </p>
+      </fieldset>
+      <p>
+        <button type="submit">Надіслати</button>
+        <button type="reset">Очистити</button>
+      </p>
+    </form>
+    <p><a href="index.html">← Повернутися на головну</a></p>
+  </main>
+  <hr>
+  <footer>
+    <p>Автор: Шершун Владислав Сергійович, група КН-42</p>
+    <p>Фаховий коледж інформаційних технологій Національного університету «Львівська політехніка», 2026</p>
+  </footer>
+</body>
+</html>
