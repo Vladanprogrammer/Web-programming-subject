@@ -1,0 +1,380 @@
+/* ==========================================================
+   Акустична варта — лабораторна робота №2 (HTML/CSS)
+   ========================================================== */
+
+/* ---------- 1. Змінні кольорів (:root) ---------- */
+:root {
+  --color-dark: #0f2d4a;
+  --color-primary: #1b6ca8;
+  --color-accent: #e07a1f;
+  --color-text: #1f2933;
+  --color-page: #eef3f7;
+  --color-card: #f8fbfd;
+  --color-border: #c9d6e2;
+}
+
+/* ---------- 2. Універсальний селектор ---------- */
+/* Box Model: width і height включають padding та border */
+* {
+  box-sizing: border-box;
+}
+
+/* ---------- 3. Базова стилізація (селектори елементів) ---------- */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-page);
+}
+
+/* Групування селекторів: спільні властивості заголовків */
+h1, h2, h3 {
+  margin: 0 0 12px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 26px; color: var(--color-dark); }
+h3 { font-size: 20px; }
+
+/* Конфлікт для демонстрації каскаду (див. блок 11) */
+p {
+  margin: 0 0 12px;
+  color: darkslategray;
+}
+
+/* ---------- 4. Шапка та навігація ---------- */
+.site-header {
+  position: relative;           /* контекст для absolute-елемента .sensor */
+  padding: 24px 5% 20px;
+  background: var(--color-dark);
+  color: #fff;
+}
+
+.brand h1 { color: #fff; }
+
+/* display: inline-block — логотип і заголовок в одному рядку */
+.logo,
+#site-title {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+}
+
+/* Селектор id */
+#site-title {
+  margin-left: 12px;
+  letter-spacing: 1px;
+}
+
+.slogan {
+  margin: 8px 0 16px;
+  color: #cfe3f3;
+}
+
+/* display: inline-block — пункти навігації */
+.nav-link {
+  display: inline-block;
+  margin: 0 6px 6px 0;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.nav-link:hover {
+  background: #fff;
+  color: var(--color-dark);
+}
+
+/* Декоративний елемент «датчик»: transform + position: absolute */
+.sensor {
+  position: absolute;
+  top: 24px;
+  right: 6%;
+  width: 72px;
+  height: 72px;
+  border: 4px solid #7fd1ff;
+  border-radius: 50%;
+  transform: rotate(-20deg) scale(1.1);
+  transition: transform 0.4s ease;
+}
+
+.sensor::before,
+.sensor::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.sensor::before {                       /* центральна точка */
+  width: 14px;
+  height: 14px;
+  background: #7fd1ff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sensor::after {                        /* «стрілка» датчика */
+  width: 4px;
+  height: 30px;
+  margin: -30px 0 0 -2px;
+  background: #7fd1ff;
+  transform-origin: 50% 100%;
+  transform: rotate(40deg);
+}
+
+.sensor:hover {
+  transform: rotate(0deg) scale(1.25);
+}
+
+/* ---------- 5. Основний вміст і секції ---------- */
+main {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+}
+
+.section {
+  margin: 30px 0;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+/* Селектор id — приклад з методички */
+#company-description {
+  padding: 20px;
+  background: #eaf4fb;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 6px;
+}
+
+/* ---------- 6. Картки (спільний клас .card, display: inline-block) ---------- */
+.card {
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;                         /* зовнішній відступ */
+  padding: 20px;                        /* внутрішній відступ */
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(15, 45, 74, 0.18);
+}
+
+/* Картка вимірювання: Box Model + position: relative */
+.measure-card {
+  position: relative;
+  width: 290px;
+  height: 250px;
+}
+
+.service-card {
+  width: 450px;
+  height: 200px;
+}
+
+.object-name {
+  margin-top: 6px;
+}
+
+.level {
+  margin-bottom: 8px;
+}
+
+.level-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.meta {
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #52606d;
+}
+
+/* ---------- 7. Статуси (змінна --status задає колір) ---------- */
+.status-ok    { --status: #2e7d32; }
+.status-warn  { --status: #b45309; }
+.status-alert { --status: #b91c1c; }
+
+/* Позначка статусу: position: absolute усередині .measure-card */
+.status-badge {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  padding: 2px 12px;
+  font-size: 13px;
+  color: #fff;
+  background: var(--status);
+  border-radius: 14px;
+}
+
+.status-text {
+  color: var(--status);
+}
+
+.status-badge,
+.status-text {
+  font-weight: 700;
+}
+
+/* ---------- 8. Попередження (aside) ---------- */
+.warning {
+  position: relative;                   /* контекст для .warning-label */
+  margin: 30px 0;
+  padding: 32px 24px 16px;
+  background: #fff4e5;
+  border: 2px solid #ed8936;
+  border-radius: 12px;
+}
+
+.warning-label {
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  padding: 2px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  background: #ed8936;
+  border-radius: 14px;
+}
+
+/* ---------- 9. Таблиця вимірювань ---------- */
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.log-table th,
+.log-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.log-table th {
+  color: #fff;
+  background: var(--color-primary);
+}
+
+.log-table tbody tr:nth-child(even) {
+  background: var(--color-card);
+}
+
+.log-table .level-cell {
+  text-align: right;
+}
+
+/* ---------- 10. Форма (селектори атрибутів) ---------- */
+.form-row {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  max-width: 460px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+input[type="email"] {
+  border-color: var(--color-primary);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--color-accent);
+}
+
+/* Кнопка: при наведенні плавно змінює колір */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-primary);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--color-accent);
+}
+
+/* ---------- 11. Навмисний конфлікт правил: каскад і specificity ----------
+   Три правила впливають на color двох абзаців у блоці .warning:
+     p              { color: darkslategray }  — специфічність 0-0-1
+     .warning-text  { color: #b45309 }        — специфічність 0-1-0
+     #warning-note  { color: #b91c1c }        — специфічність 1-0-0
+   Перший абзац (лише клас)  -> .warning-text перемагає p.
+   Другий абзац (клас + id)  -> #warning-note перемагає .warning-text і p. */
+.warning-text {
+  color: #b45309;
+}
+
+#warning-note {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+/* ---------- 12. Підвал ---------- */
+.site-footer {
+  margin-top: 20px;
+  padding: 24px 5%;
+  text-align: center;
+  color: #cfe3f3;
+  background: var(--color-dark);
+}
+
+.site-footer p {
+  margin-bottom: 4px;
+  color: #cfe3f3;
+}
+
+.site-footer .footer-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.copyright {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+a[href^="mailto:"],
+a[href^="tel:"] {
+  color: #7fd1ff;
+}
