@@ -1,0 +1,85 @@
+// ==========================================================
+// _layout.scss — контейнери, секції, Grid/Flexbox-структура сторінки
+// ==========================================================
+@use "variables" as v;
+@use "mixins" as m;
+
+// ---------- Header (Flexbox) ----------
+.site-header {
+  padding-block: v.$space-lg;
+  color: v.$color-white;
+  background: v.$color-dark;
+}
+
+.header__inner {
+  @include m.container;
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-md;
+
+  @include m.respond-to(v.$bp-tablet) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+// ---------- Основний вміст ----------
+main {
+  @include m.container;
+  padding-bottom: v.$space-md;
+}
+
+.section {
+  margin-block: v.$space-lg;
+  padding: clamp(16px, 3vw, 24px);
+  background: v.$color-white;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-lg;
+}
+
+// ---------- Hero (Grid) ----------
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-lg;
+
+  @include m.respond-to(v.$bp-tablet) {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+}
+
+// ---------- Сітки карток (Grid) ----------
+// «Поточний моніторинг»: 1 -> 2 -> 5 колонок
+.monitoring-grid {
+  @include m.responsive-grid(2, 5, v.$space-lg);
+  margin-top: v.$space-lg;
+}
+
+// «Напрями роботи»: 1 -> 2 -> 4 колонки
+.services-grid {
+  @include m.responsive-grid(2, 4, v.$space-md);
+  margin-top: v.$space-md;
+}
+
+// ---------- Footer (Flexbox) ----------
+.site-footer {
+  margin-top: v.$space-md;
+  padding-block: v.$space-lg;
+  color: v.$color-light;
+  background: v.$color-dark;
+}
+
+.footer__inner {
+  @include m.container;
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-lg;
+
+  @include m.respond-to(v.$bp-tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

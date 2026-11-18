@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Акустична варта — моніторинг шумового забруднення</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header__inner">
+      <div class="brand">
+        <img class="logo" src="assets/images/logo.svg" alt="Логотип «Акустична варта»: звукові хвилі навколо датчика" width="56" height="56">
+        <h1 id="site-title">Акустична варта</h1>
+        <p class="slogan">Професійний моніторинг шумового забруднення міських територій</p>
+      </div>
+      <nav class="nav" aria-label="Головна навігація">
+        <a class="nav-link" href="#about">Про нас</a>
+        <a class="nav-link" href="#monitoring">Моніторинг</a>
+        <a class="nav-link" href="#services">Напрямки</a>
+        <a class="nav-link" href="#log">Вимірювання</a>
+        <a class="nav-link" href="#order">Замовити</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="about" class="section hero">
+      <div class="hero__content">
+        <h2 class="hero__title">Чуємо місто, щоб воно звучало комфортніше</h2>
+        <p>«Акустична варта» встановлює тимчасові акустичні датчики, проводить вимірювання рівня шуму та готує зрозумілі звіти для житлових комплексів, офісних центрів, підприємств, міських просторів і організаторів масових заходів.</p>
+        <p id="company-description">Ми працюємо з даними, а не з припущеннями: кожне дослідження містить карту точок вимірювання, графік рівня шуму за добу та рекомендації щодо його зниження.</p>
+        <a class="btn" href="#order">Замовити дослідження</a>
+      </div>
+      <div class="hero__image">
+        <img src="assets/images/hero.svg" alt="Мікрофон на тлі міської забудови та звукові хвилі" width="800" height="520">
+        <div class="sensor" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="monitoring" class="section">
+      <h2>Поточний моніторинг</h2>
+      <p>Середній рівень шуму на об'єктах за останній період вимірювань. Орієнтир — санітарні норми для житлової забудови: 55 дБА вдень і 45 дБА вночі.</p>
+
+      <div class="monitoring-grid">
+        <div class="card measure-card">
+          <span class="status-badge status-ok">Норма</span>
+          <h3 class="object-name">ЖК «Сонячний квартал»</h3>
+          <p class="level"><span class="level-value">48</span> дБА</p>
+          <p class="meta">Період: 01.11–14.11.2026</p>
+          <p class="meta">Точок вимірювання: 6</p>
+        </div>
+
+        <div class="card measure-card">
+          <span class="status-badge status-warn">Увага</span>
+          <h3 class="object-name">Бізнес-центр «Ріверсайд»</h3>
+          <p class="level"><span class="level-value">57</span> дБА</p>
+          <p class="meta">Період: 08.11–14.11.2026</p>
+          <p class="meta">Точок вимірювання: 4</p>
+        </div>
+
+        <div class="card measure-card">
+          <span class="status-badge status-alert">Перевищення</span>
+          <h3 class="object-name">Парк «Центральний»</h3>
+          <p class="level"><span class="level-value">72</span> дБА</p>
+          <p class="meta">Період: 13.11–14.11.2026</p>
+          <p class="meta">Точок вимірювання: 8</p>
+        </div>
+
+        <div class="card measure-card">
+          <span class="status-badge status-warn">Увага</span>
+          <h3 class="object-name">Підприємство «Металіка»</h3>
+          <p class="level"><span class="level-value">63</span> дБА</p>
+          <p class="meta">Період: 05.11–11.11.2026</p>
+          <p class="meta">Точок вимірювання: 5</p>
+        </div>
+
+        <div class="card measure-card">
+          <span class="status-badge status-ok">Норма</span>
+          <h3 class="object-name">Офісний центр «Версаль»</h3>
+          <p class="level"><span class="level-value">51</span> дБА</p>
+          <p class="meta">Період: 10.11–14.11.2026</p>
+          <p class="meta">Точок вимірювання: 3</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Напрямки роботи</h2>
+
+      <div class="services-grid">
+        <article class="card service-card">
+          <h3>Житлові комплекси</h3>
+          <p>Вимірювання нічного шуму від інженерного обладнання, паркінгів і транспорту. Результат — звіт для управителя та мешканців.</p>
+          <p class="meta">Тривалість: від 7 діб</p>
+        </article>
+
+        <article class="card service-card">
+          <h3>Офісні центри</h3>
+          <p>Оцінка акустичного комфорту робочих просторів і впливу зовнішніх джерел шуму на переговорні та відкриті зони.</p>
+          <p class="meta">Тривалість: від 3 діб</p>
+        </article>
+
+        <article class="card service-card">
+          <h3>Підприємства</h3>
+          <p>Контроль шуму на межі промислового майданчика та в робочих зонах згідно з вимогами охорони праці.</p>
+          <p class="meta">Тривалість: від 5 діб</p>
+        </article>
+
+        <article class="card service-card">
+          <h3>Міські простори та заходи</h3>
+          <p>Моніторинг рівня шуму під час фестивалів, концертів і спортивних подій у реальному часі з добовим звітом.</p>
+          <p class="meta">Тривалість: від 1 доби</p>
+        </article>
+      </div>
+    </section>
+
+    <aside id="warning" class="warning">
+      <span class="warning-label">Попередження</span>
+      <h2>Шум небезпечний не лише для слуху</h2>
+      <p class="warning-text">Тривала дія шуму понад 85 дБА протягом 8 годин створює ризик для слуху.</p>
+      <p id="warning-note" class="warning-text">Навіть нижчі рівні, але постійні, порушують сон і підвищують стрес — тому нічні виміри для нас пріоритетні.</p>
+    </aside>
+
+    <section id="log" class="section">
+      <h2>Останні вимірювання</h2>
+      <div class="table-wrapper" role="region" aria-label="Таблиця останніх вимірювань" tabindex="0">
+        <table class="log-table">
+          <thead>
+            <tr>
+              <th>Дата</th>
+              <th>Місце</th>
+              <th>Рівень, дБА</th>
+              <th>Статус</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>14.11.2026</td>
+              <td>ЖК «Сонячний квартал», двір</td>
+              <td class="level-cell">47</td>
+              <td><span class="status-text status-ok">Норма</span></td>
+            </tr>
+            <tr>
+              <td>14.11.2026</td>
+              <td>Парк «Центральний», сцена</td>
+              <td class="level-cell">74</td>
+              <td><span class="status-text status-alert">Перевищення</span></td>
+            </tr>
+            <tr>
+              <td>13.11.2026</td>
+              <td>Бізнес-центр «Ріверсайд», вхід</td>
+              <td class="level-cell">58</td>
+              <td><span class="status-text status-warn">Увага</span></td>
+            </tr>
+            <tr>
+              <td>12.11.2026</td>
+              <td>ЖК «Сонячний квартал», паркінг</td>
+              <td class="level-cell">52</td>
+              <td><span class="status-text status-ok">Норма</span></td>
+            </tr>
+            <tr>
+              <td>11.11.2026</td>
+              <td>Підприємство «Металіка», межа ділянки</td>
+              <td class="level-cell">63</td>
+              <td><span class="status-text status-warn">Увага</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="order" class="section">
+      <h2>Замовити дослідження</h2>
+      <form class="form" action="#" method="post">
+        <div class="form__fields">
+          <div class="form-row">
+            <label for="name">Ім'я</label>
+            <input type="text" id="name" name="name" placeholder="Наприклад, Олена" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" required>
+          </div>
+          <div class="form-row">
+            <label for="object-type">Тип об'єкта</label>
+            <select id="object-type" name="object-type" required>
+              <option value="">— оберіть тип —</option>
+              <option value="residential">Житловий комплекс</option>
+              <option value="office">Офісний центр</option>
+              <option value="industrial">Підприємство</option>
+              <option value="public">Міський простір</option>
+              <option value="event">Масовий захід</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="period">Період вимірювань</label>
+            <select id="period" name="period">
+              <option value="1d">1 доба</option>
+              <option value="1w" selected>1 тиждень</option>
+              <option value="1m">1 місяць</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row form__description">
+          <label for="details">Опис завдання</label>
+          <textarea id="details" name="details" rows="5" placeholder="Де і коли шум створює незручності?"></textarea>
+        </div>
+        <div class="form__actions">
+          <button type="submit" class="btn">Надіслати заявку</button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__inner">
+      <div class="footer__contacts">
+        <p class="footer__title">Акустична варта</p>
+        <p>Email: <a href="mailto:info@akustychna-varta.example">info@akustychna-varta.example</a></p>
+        <p>Телефон: <a href="tel:+380000000000">+38 (000) 000-00-00</a></p>
+      </div>
+      <nav class="footer__nav" aria-label="Навігація в підвалі">
+        <a href="#about">Про нас</a>
+        <a href="#monitoring">Моніторинг</a>
+        <a href="#services">Напрямки</a>
+        <a href="#order">Замовити</a>
+      </nav>
+    </div>
+    <p class="footer__copy">© 2026 Акустична варта. Усі права захищено.</p>
+  </footer>
+
+</body>
+</html>

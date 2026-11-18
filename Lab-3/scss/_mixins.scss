@@ -1,0 +1,46 @@
+// ==========================================================
+// _mixins.scss — повторювані патерни
+// ==========================================================
+@use "variables" as v;
+
+// Media query за принципом Mobile First
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Центрування через Flexbox
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Контейнер із бічними відступами та максимальною шириною
+@mixin container {
+  width: min(100% - 32px, v.$container-max);
+  margin-inline: auto;
+}
+
+// Поверхня картки (фон, рамка, радіус)
+@mixin card-surface($radius: v.$radius) {
+  background: v.$color-card;
+  border: 1px solid v.$color-border;
+  border-radius: $radius;
+}
+
+// Адаптивна сітка з кількістю колонок для mobile / tablet / desktop
+@mixin responsive-grid($tablet-cols, $desktop-cols, $gap: v.$space-md) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $gap;
+
+  @include respond-to(v.$bp-tablet) {
+    grid-template-columns: repeat($tablet-cols, 1fr);
+  }
+
+  @include respond-to(v.$bp-desktop) {
+    grid-template-columns: repeat($desktop-cols, 1fr);
+  }
+}

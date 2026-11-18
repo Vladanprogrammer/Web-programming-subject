@@ -1,0 +1,381 @@
+// ==========================================================
+// _components.scss — навігація, hero, картки, кнопки, warning, таблиця, форма, footer
+// ==========================================================
+@use "variables" as v;
+@use "mixins" as m;
+
+// ---------- Бренд і навігація ----------
+.brand {
+  .logo {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  h1 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 12px;
+    color: v.$color-white;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+}
+
+.slogan {
+  max-width: 34ch;
+  margin: v.$space-sm 0 0;
+  color: v.$color-light;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include m.respond-to(v.$bp-tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}
+
+.nav-link {
+  padding: v.$space-sm 18px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: v.$radius-pill;
+  color: v.$color-white;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+
+  &:hover {
+    color: v.$color-dark;
+    background: v.$color-white;
+  }
+}
+
+// ---------- Hero ----------
+.hero__title {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  margin-bottom: v.$space-md;
+}
+
+.hero__image {
+  position: relative;
+
+  img {
+    width: 100%;
+    border-radius: v.$radius-lg;
+    object-fit: cover;
+  }
+}
+
+// Декоративний «датчик» (transform + position: absolute)
+.sensor {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 56px;
+  height: 56px;
+  border: 4px solid v.$color-sky;
+  border-radius: 50%;
+  transform: rotate(-20deg) scale(1.05);
+  transition: transform 0.4s ease;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+
+  &::before {
+    width: 12px;
+    height: 12px;
+    background: v.$color-sky;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    width: 4px;
+    height: 22px;
+    margin: -22px 0 0 -2px;
+    background: v.$color-sky;
+    transform-origin: 50% 100%;
+    transform: rotate(40deg);
+  }
+
+  &:hover {
+    transform: rotate(0deg) scale(1.2);
+  }
+
+  @include m.respond-to(v.$bp-tablet) {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+#company-description {
+  padding: 20px;
+  background: v.$color-surface;
+  border-left: 4px solid v.$color-primary;
+  border-radius: v.$radius-sm;
+}
+
+// ---------- Кнопки ----------
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-weight: 600;
+  color: v.$color-white;
+  text-decoration: none;
+  background: v.$color-primary;
+  border: none;
+  border-radius: v.$radius-sm;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: v.$color-accent;
+  }
+}
+
+// ---------- Картки ----------
+.card {
+  @include m.card-surface;
+  padding: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(15, 45, 74, 0.18);
+  }
+}
+
+.measure-card {
+  position: relative;
+}
+
+// Внутрішня структура картки напрямку (Flexbox)
+.service-card {
+  display: flex;
+  flex-direction: column;
+
+  .meta {
+    margin-top: auto;
+  }
+}
+
+.object-name {
+  margin-top: 6px;
+  font-size: 1.1rem;
+}
+
+.level {
+  margin-bottom: v.$space-sm;
+}
+
+.level-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: v.$color-primary;
+}
+
+.meta {
+  margin-bottom: v.$space-xs;
+  font-size: 14px;
+  color: v.$color-muted;
+}
+
+// ---------- Статуси ----------
+.status-ok {
+  --status: #{v.$color-ok};
+}
+
+.status-warn {
+  --status: #{v.$color-warn};
+}
+
+.status-alert {
+  --status: #{v.$color-alert};
+}
+
+.status-badge {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  padding: 2px 12px;
+  font-size: 13px;
+  color: v.$color-white;
+  background: var(--status);
+  border-radius: 14px;
+}
+
+.status-text {
+  color: var(--status);
+}
+
+.status-badge,
+.status-text {
+  font-weight: 700;
+}
+
+// ---------- Попередження ----------
+.warning {
+  position: relative;
+  width: 100%;
+  margin-block: 30px;
+  padding: 32px v.$space-md v.$space-md;
+  background: v.$color-warning-bg;
+  border: 2px solid v.$color-warning-border;
+  border-radius: v.$radius-lg;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  @include m.respond-to(v.$bp-tablet) {
+    padding-inline: v.$space-lg;
+  }
+}
+
+.warning-label {
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  padding: 2px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: v.$color-white;
+  background: v.$color-warning-border;
+  border-radius: 14px;
+}
+
+// Каскад і специфічність (з попередньої роботи)
+.warning-text {
+  color: v.$color-warn;
+}
+
+#warning-note {
+  font-weight: 700;
+  color: v.$color-alert;
+}
+
+// ---------- Таблиця ----------
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.log-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid v.$color-border;
+    text-align: left;
+  }
+
+  th {
+    color: v.$color-white;
+    background: v.$color-primary;
+  }
+
+  tbody tr:nth-child(even) {
+    background: v.$color-card;
+  }
+
+  .level-cell {
+    text-align: right;
+  }
+}
+
+// ---------- Форма (Grid) ----------
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-md;
+
+  @include m.respond-to(v.$bp-desktop) {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+}
+
+.form__fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-md;
+
+  @include m.respond-to(v.$bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form__description {
+  @include m.respond-to(v.$bp-tablet) {
+    grid-column: 1 / -1;
+  }
+
+  @include m.respond-to(v.$bp-desktop) {
+    grid-column: auto;
+  }
+}
+
+.form__actions {
+  @include m.respond-to(v.$bp-desktop) {
+    grid-column: 1 / -1;
+  }
+}
+
+// ---------- Footer ----------
+.footer__title {
+  margin-bottom: v.$space-xs;
+  font-size: 20px;
+  font-weight: 700;
+  color: v.$color-white;
+}
+
+.site-footer p {
+  margin-bottom: v.$space-xs;
+  color: v.$color-light;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  a {
+    color: v.$color-light;
+    text-decoration: none;
+
+    &:hover {
+      color: v.$color-white;
+      text-decoration: underline;
+    }
+  }
+
+  @include m.respond-to(v.$bp-tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: v.$space-md;
+  }
+}
+
+.footer__copy {
+  margin-top: 12px;
+  font-size: 14px;
+  color: v.$color-light;
+}
+
+.site-footer .footer__copy {
+  text-align: center;
+}

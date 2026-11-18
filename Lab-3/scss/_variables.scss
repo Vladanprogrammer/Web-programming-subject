@@ -1,0 +1,45 @@
+// ==========================================================
+// _variables.scss — кольори, відступи, розміри, breakpoints
+// ==========================================================
+
+// Кольори
+$color-dark: #0f2d4a;
+$color-primary: #1b6ca8;
+$color-accent: #e07a1f;
+$color-text: #1f2933;
+$color-muted: #52606d;
+$color-page: #eef3f7;
+$color-card: #f8fbfd;
+$color-surface: #eaf4fb;
+$color-border: #c9d6e2;
+$color-light: #cfe3f3;
+$color-sky: #7fd1ff;
+$color-white: #fff;
+
+// Статуси
+$color-ok: #2e7d32;
+$color-warn: #b45309;
+$color-alert: #b91c1c;
+$color-warning-bg: #fff4e5;
+$color-warning-border: #ed8936;
+
+// Відступи
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 40px;
+
+// Розміри
+$container-max: 1200px;
+$radius-sm: 6px;
+$radius: 10px;
+$radius-lg: 12px;
+$radius-pill: 20px;
+
+// Breakpoints (Mobile First: min-width)
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
+// Типографіка
+$font-main: "Segoe UI", Roboto, Arial, sans-serif;
