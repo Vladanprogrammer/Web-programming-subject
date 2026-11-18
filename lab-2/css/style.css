@@ -18,6 +18,11 @@
 * {
   box-sizing: border-box;
 }
+.rellpng{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+} 
 
 /* ---------- 3. Базова стилізація (селектори елементів) ---------- */
 body {
@@ -30,15 +35,26 @@ body {
 }
 
 /* Групування селекторів: спільні властивості заголовків */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin: 0 0 12px;
   font-weight: 700;
   line-height: 1.25;
 }
 
-h1 { font-size: 36px; }
-h2 { font-size: 26px; color: var(--color-dark); }
-h3 { font-size: 20px; }
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 26px;
+  color: var(--color-dark);
+}
+
+h3 {
+  font-size: 20px;
+}
 
 /* Конфлікт для демонстрації каскаду (див. блок 11) */
 p {
@@ -48,13 +64,16 @@ p {
 
 /* ---------- 4. Шапка та навігація ---------- */
 .site-header {
-  position: relative;           /* контекст для absolute-елемента .sensor */
+  position: relative;
+  /* контекст для absolute-елемента .sensor */
   padding: 24px 5% 20px;
   background: var(--color-dark);
   color: #fff;
 }
 
-.brand h1 { color: #fff; }
+.brand h1 {
+  color: #fff;
+}
 
 /* display: inline-block — логотип і заголовок в одному рядку */
 .logo,
@@ -113,7 +132,8 @@ p {
   top: 50%;
 }
 
-.sensor::before {                       /* центральна точка */
+.sensor::before {
+  /* центральна точка */
   width: 14px;
   height: 14px;
   background: #7fd1ff;
@@ -121,7 +141,8 @@ p {
   transform: translate(-50%, -50%);
 }
 
-.sensor::after {                        /* «стрілка» датчика */
+.sensor::after {
+  /* «стрілка» датчика */
   width: 4px;
   height: 30px;
   margin: -30px 0 0 -2px;
@@ -161,8 +182,10 @@ main {
 .card {
   display: inline-block;
   vertical-align: top;
-  margin: 10px;                         /* зовнішній відступ */
-  padding: 20px;                        /* внутрішній відступ */
+  margin: 10px;
+  /* зовнішній відступ */
+  padding: 20px;
+  /* внутрішній відступ */
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: 10px;
@@ -207,9 +230,17 @@ main {
 }
 
 /* ---------- 7. Статуси (змінна --status задає колір) ---------- */
-.status-ok    { --status: #2e7d32; }
-.status-warn  { --status: #b45309; }
-.status-alert { --status: #b91c1c; }
+.status-ok {
+  --status: #2e7d32;
+}
+
+.status-warn {
+  --status: #b45309;
+}
+
+.status-alert {
+  --status: #b91c1c;
+}
 
 /* Позначка статусу: position: absolute усередині .measure-card */
 .status-badge {
@@ -234,7 +265,8 @@ main {
 
 /* ---------- 8. Попередження (aside) ---------- */
 .warning {
-  position: relative;                   /* контекст для .warning-label */
+  position: relative;
+  /* контекст для .warning-label */
   margin: 30px 0;
   padding: 32px 24px 16px;
   background: #fff4e5;
